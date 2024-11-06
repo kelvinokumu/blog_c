@@ -1,8 +1,14 @@
-<!-- users/templates/users/register.html -->
-<h2>Register</h2>
-<form method="POST" enctype="multipart/form-data">
-    {% csrf_token %}
-    {{ form.as_p }}
-    {{ profile_form.as_p }}
-    <button type="submit">Register</button>
-</form>
+{% extends 'layout.html' %}
+
+{% block title %}
+    Register a New User
+{% endblock %}
+
+{% block content %}
+    <h1>Register a New User</h1>
+    <form class="form-with-validation" action="/users/register/" method="post">
+        {% csrf_token %}
+        {{ form }}
+        <button class="form-submit">Submit</button>
+    </form>
+{% endblock %}
